@@ -14,10 +14,13 @@ Open-source, local-first ultrasound research workspace for **Android, Windows an
 - Local PNG/JPEG and a limited uncompressed grayscale DICOM import, original-file preservation, zoom and multiframe preview.
 - Searchable study library, PNG/original export, and passphrase-encrypted local vault with encrypted backup/restore.
 - Responsive navigation for phones and desktops.
+- Searchable in-app usage guide, Clarius-first device requirements and a pinned 73-function SDK surface inventory.
 - Cloudflare Worker and static hosting configuration, health/capabilities API, and disabled study-upload endpoints.
 - GitHub CI definitions for shared tests, Android debug APK, Windows build and web build.
 
 No scan data is uploaded. Cloud study synchronization, authentication, real probe SDKs and the GE DICOM gateway are **not implemented**. See [exact format limits and implementation status](docs/IMPLEMENTATION_STATUS.md).
+
+**Guides:** [Complete usage](docs/USAGE.md) · [Clarius integration coverage](docs/CLARIUS.md) · [Editable Windows/Android Figma design](https://www.figma.com/design/JVAG6jYshsNxMfgio5eDVP).
 
 ## Run locally
 

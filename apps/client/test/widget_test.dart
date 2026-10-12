@@ -48,4 +48,26 @@ void main() {
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
   });
+  testWidgets('guide search explains Clarius limits and handles no results', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(const BlueApp());
+    await tester.pump();
+    await tester.tap(find.text('Guide'));
+    await tester.pump();
+    await tester.enterText(find.byType(TextField), 'choose Solum');
+    await tester.pump();
+    await tester.tap(find.text('Clarius: choose Solum or Cast'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('commercial-partner access'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'no-such-topic');
+    await tester.pump();
+    expect(find.textContaining('No matching topics'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
 }

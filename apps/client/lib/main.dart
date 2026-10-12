@@ -8,6 +8,7 @@ import 'core/importer.dart';
 import 'core/scanner.dart';
 import 'core/study.dart';
 import 'core/vault.dart';
+import 'guide.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -388,10 +389,11 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     final wide = MediaQuery.sizeOf(context).width >= 840;
     final titles = [
-      'A clear view. In one place.',
-      'Your study library.',
-      'Connect with confidence.',
-      'Local first. Yours to control.',
+      'Scan workspace',
+      'Study library',
+      'Devices & connections',
+      'Your local vault',
+      'Setup & usage',
     ];
     final bodies = <Widget>[
       _ScanPage(
@@ -411,6 +413,7 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
         onCapture: () => addStudy(Study.capture(scanner.capture())),
         onImport: importFile,
         onLibrary: () => setState(() => page = 1),
+        onDevices: () => setState(() => page = 2),
         count: studies.length,
       ),
       _Library(
@@ -451,7 +454,7 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
           }
         },
       ),
-      const _Devices(),
+      ClariusDevices(onGuide: () => setState(() => page = 4)),
       _StoragePage(
         hasVault: hasVault,
         unlocked: unlockedPassphrase != null,
@@ -463,6 +466,7 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
         onBackup: exportBackup,
         onRestore: restoreBackup,
       ),
+      const UsageGuide(),
     ];
     return Scaffold(
       body: SafeArea(
@@ -486,7 +490,7 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
                         ),
                       ),
                     ),
-                    for (var i = 0; i < 4; i++)
+                    for (var i = 0; i < _labels.length; i++)
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
@@ -553,12 +557,16 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        const _Notice(
-                          text:
-                              'Research preview. Demo images are synthetic. Import only synthetic or reviewed de-identified scans. No cloud uploads or real probe connections are enabled.',
-                        ),
-                        const SizedBox(height: 20),
                         bodies[page],
+                        const SizedBox(height: 20),
+                        const Text(
+                          'Research preview · Synthetic or de-identified files only. Hardware acquisition is not enabled.',
+                          style: TextStyle(
+                            color: Color(0xff53657d),
+                            fontSize: 12,
+                            height: 1.5,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -574,7 +582,7 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
               selectedIndex: page,
               onDestinationSelected: (value) => setState(() => page = value),
               destinations: [
-                for (var i = 0; i < 4; i++)
+                for (var i = 0; i < _labels.length; i++)
                   NavigationDestination(
                     icon: Icon(_icons[i]),
                     label: _labels[i],
@@ -585,12 +593,13 @@ class _WorkspaceState extends State<Workspace> with WidgetsBindingObserver {
   }
 }
 
-const _labels = ['Workspace', 'Studies', 'Devices', 'Storage'];
+const _labels = ['Workspace', 'Studies', 'Devices', 'Storage', 'Guide'];
 const _icons = [
   Icons.monitor_heart_outlined,
   Icons.folder_outlined,
   Icons.sensors,
   Icons.lock_outline,
+  Icons.menu_book_outlined,
 ];
 Study _importInWorker((Uint8List, String) args) =>
     importStudy(args.$1, args.$2);
@@ -604,27 +613,10 @@ class _Card extends StatelessWidget {
     elevation: 0,
     color: Colors.white,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(12),
       side: const BorderSide(color: Color(0xffdce4ef)),
     ),
     child: Padding(padding: const EdgeInsets.all(20), child: child),
-  );
-}
-
-class _Notice extends StatelessWidget {
-  const _Notice({required this.text});
-  final String text;
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(16),
-    decoration: BoxDecoration(
-      color: const Color(0xffe5eefc),
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: Text(
-      text,
-      style: const TextStyle(color: Color(0xff244977), height: 1.5),
-    ),
   );
 }
 
@@ -640,6 +632,7 @@ class _ScanPage extends StatelessWidget {
     required this.onCapture,
     required this.onImport,
     required this.onLibrary,
+    required this.onDevices,
     required this.count,
   });
   final DemoScanner scanner;
@@ -650,7 +643,8 @@ class _ScanPage extends StatelessWidget {
       onFreeze,
       onCapture,
       onImport,
-      onLibrary;
+      onLibrary,
+      onDevices;
   final int count;
   @override
   Widget build(BuildContext context) {
@@ -663,7 +657,7 @@ class _ScanPage extends StatelessWidget {
         : connected
         ? 'SIMULATED · 8 FPS'
         : 'NO SOURCE CONNECTED';
-    return _Card(
+    final scan = _Card(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -680,7 +674,7 @@ class _ScanPage extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           Container(
-            height: 340,
+            height: MediaQuery.sizeOf(context).width >= 1100 ? 440 : 340,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               color: const Color(0xff07111e),
@@ -703,7 +697,7 @@ class _ScanPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 14),
                                 Text(
-                                  'Start the synthetic demo to explore Blue',
+                                  'Ready when you are\nStart a synthetic scan to explore Blue',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(color: Colors.white),
                                 ),
@@ -785,11 +779,76 @@ class _ScanPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'No probe needed for this demo. GE, Clarius, and Butterfly connections are listed separately under Devices.',
+            'Capture a frame, review it in Studies, then save your vault. Clarius setup requirements are in Devices → Read setup & usage.',
             style: TextStyle(color: Color(0xff53657d), height: 1.5),
           ),
         ],
       ),
+    );
+    final source = _Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'YOUR SOURCE',
+            style: TextStyle(
+              fontSize: 11,
+              letterSpacing: 1.4,
+              color: Color(0xff53657d),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'Clarius',
+            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 8),
+          const Text(
+            'Hardware adapter pending',
+            style: TextStyle(color: Color(0xff53657d)),
+          ),
+          const SizedBox(height: 20),
+          const Text(
+            'Solum for direct control. Cast for companion streaming. See the requirements and supported SDK capabilities.',
+            style: TextStyle(height: 1.6),
+          ),
+          const SizedBox(height: 20),
+          OutlinedButton.icon(
+            onPressed: onDevices,
+            icon: const Icon(Icons.sensors),
+            label: const Text('Setup & capabilities'),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 20),
+            child: Divider(),
+          ),
+          const Text(
+            'AVAILABLE NOW',
+            style: TextStyle(
+              fontSize: 11,
+              letterSpacing: 1.4,
+              color: Color(0xff53657d),
+            ),
+          ),
+          const SizedBox(height: 12),
+          const Text(
+            'Synthetic scanning\nLocal file import\nEncrypted study vault',
+            style: TextStyle(height: 2),
+          ),
+        ],
+      ),
+    );
+    return LayoutBuilder(
+      builder: (context, constraints) => constraints.maxWidth >= 1000
+          ? Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: scan),
+                const SizedBox(width: 20),
+                SizedBox(width: 284, child: source),
+              ],
+            )
+          : Column(children: [scan, const SizedBox(height: 16), source]),
     );
   }
 }
@@ -1014,55 +1073,6 @@ class _StudyViewerState extends State<StudyViewer> {
         ),
       ),
     ),
-  );
-}
-
-class _Devices extends StatelessWidget {
-  const _Devices();
-  @override
-  Widget build(BuildContext context) => Column(
-    children: [
-      for (final item in const [
-        (
-          'Synthetic demo',
-          'AVAILABLE',
-          'Generated locally. Freeze, capture and review work without hardware or an internet connection.',
-        ),
-        (
-          'GE Vscan Air',
-          'NOT CONNECTED',
-          'Manual scan import is available for supported files. Direct live control requires vendor access; no GE hardware integration has been verified.',
-        ),
-        (
-          'Clarius',
-          'SDK REQUIRED',
-          'Candidate integration through Cast or Solum. A licensed SDK, probe, and platform-specific testing are still required.',
-        ),
-        (
-          'Butterfly',
-          'SDK REQUIRED',
-          'Developer access and Android/Windows compatibility must be verified. No connector is included in this release.',
-        ),
-      ])
-        Padding(
-          padding: const EdgeInsets.only(bottom: 16),
-          child: _Card(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(item.$1, style: Theme.of(context).textTheme.titleLarge),
-                const SizedBox(height: 8),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Chip(label: Text(item.$2)),
-                ),
-                const SizedBox(height: 8),
-                Text(item.$3, style: const TextStyle(height: 1.6)),
-              ],
-            ),
-          ),
-        ),
-    ],
   );
 }
 

@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "hardwareVerified": false,
+  "sources": [
+    {
+      "sdk": "solum",
+      "commit": "6d5c55fe49076e36eae3f63fa0dcf2d38dc4b328",
+      "url": "https://raw.githubusercontent.com/clariusdev/solum/6d5c55fe49076e36eae3f63fa0dcf2d38dc4b328/include/solum/solum.h",
+      "functions": [
+        {
+          "name": "solumAdjustGate",
+          "signature": "int solumAdjustGate(int x, int y)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumAdjustRoi",
+          "signature": "int solumAdjustRoi(int x, int y, CusRoiFunction fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumApplications",
+          "signature": "int solumApplications(const char* probe, CusListFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumBatteryHealth",
+          "signature": "int solumBatteryHealth(CusBatteryHealthFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumCalibrateImu",
+          "signature": "int solumCalibrateImu(int stationary, CusImuCalibrationFn fn, CusProgressFn progress)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumConnect",
+          "signature": "int solumConnect(const CusConnectionParams* params)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumDefaultConnectionParams",
+          "signature": "CusConnectionParams solumDefaultConnectionParams(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumDefaultInitParams",
+          "signature": "CusInitParams solumDefaultInitParams(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumDestroy",
+          "signature": "int solumDestroy(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumDisconnect",
+          "signature": "int solumDisconnect(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumEnable5v",
+          "signature": "int solumEnable5v(int en)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumEnableLowLevelParam",
+          "signature": "int solumEnableLowLevelParam(const char* prm, int en)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumFwVersion",
+          "signature": "int solumFwVersion(CusPlatform platform, char* version, int sz)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetAcousticIndices",
+          "signature": "int solumGetAcousticIndices(CusAcoustic* indices)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetActiveRegion",
+          "signature": "int solumGetActiveRegion(double* points, int count)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetGate",
+          "signature": "int solumGetGate(CusGateLines* lines)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetLowLevelParam",
+          "signature": "double solumGetLowLevelParam(const char* prm)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetMode",
+          "signature": "CusMode solumGetMode(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetParam",
+          "signature": "double solumGetParam(CusParam param)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetRange",
+          "signature": "int solumGetRange(CusParam param, CusRange* range)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetRoi",
+          "signature": "int solumGetRoi(double* points, int count)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumGetTgc",
+          "signature": "int solumGetTgc(CusTgc* tgc)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumInit",
+          "signature": "int solumInit(const CusInitParams* params)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumIsConnected",
+          "signature": "int solumIsConnected(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumIsImaging",
+          "signature": "int solumIsImaging(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumLoadApplication",
+          "signature": "int solumLoadApplication(const char* probe, const char* workflow)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumMaximizeRoi",
+          "signature": "int solumMaximizeRoi(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumOptimizeWifi",
+          "signature": "int solumOptimizeWifi(CusWifiOpt opt)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumPowerDown",
+          "signature": "int solumPowerDown(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumProbeInfo",
+          "signature": "int solumProbeInfo(CusProbeInfo* info)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumProbes",
+          "signature": "int solumProbes(CusListFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumRawDataAvailability",
+          "signature": "int solumRawDataAvailability(CusRawAvailabilityFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumReadRawData",
+          "signature": "int solumReadRawData(void** data, CusRawFn fn, CusProgressFn progress)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumRequestRawData",
+          "signature": "int solumRequestRawData(long long int start, long long int end, int lzo, CusRawRequestFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumResetProbe",
+          "signature": "int solumResetProbe(CusProbeReset reset)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumRun",
+          "signature": "int solumRun(int run)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSeparateOverlays",
+          "signature": "int solumSeparateOverlays(int en)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetCert",
+          "signature": "int solumSetCert(const char* cert)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetFormat",
+          "signature": "int solumSetFormat(CusImageFormat format)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetLowLevelParam",
+          "signature": "int solumSetLowLevelParam(const char* prm, double val)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetLowLevelPulse",
+          "signature": "int solumSetLowLevelPulse(const char* prm, const char* shape)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetMode",
+          "signature": "int solumSetMode(CusMode mode)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetOutputSize",
+          "signature": "int solumSetOutputSize(int w, int h)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetParam",
+          "signature": "int solumSetParam(CusParam param, double val)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetProbeSettings",
+          "signature": "int solumSetProbeSettings(const CusProbeSettings* settings)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetTeeExamInfo",
+          "signature": "int solumSetTeeExamInfo(const char* id, const char* name, const char* exam)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetTeeFn",
+          "signature": "int solumSetTeeFn(CusTeeConnectFn tee)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSetTgc",
+          "signature": "int solumSetTgc(const CusTgc* tgc)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumSoftwareUpdate",
+          "signature": "int solumSoftwareUpdate(const char* path, CusSwUpdateFn fn, CusProgressFn progress, int hwVer)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "solumStatusInfo",
+          "signature": "int solumStatusInfo(CusStatusInfo* info)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        }
+      ]
+    },
+    {
+      "sdk": "cast",
+      "commit": "559717022388e2975e3e2826642d97879daa14a3",
+      "url": "https://raw.githubusercontent.com/clariusdev/cast/559717022388e2975e3e2826642d97879daa14a3/include/cast/cast.h",
+      "functions": [
+        {
+          "name": "castAddImageOverlay",
+          "signature": "int castAddImageOverlay(int id, const void* data, int width, int height, float red, float green, float blue, float alpha)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castAddLabelOverlay",
+          "signature": "int castAddLabelOverlay(int id, const char* text, double x, double y, double width, double height)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castAddMeasurement",
+          "signature": "int castAddMeasurement(int id, CusMeasurementType type, const char* label, const double* pts, int count)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castConnect",
+          "signature": "int castConnect(const char* ipAddress, unsigned int port, const char* cert, CusConnectFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castDefaultInitParams",
+          "signature": "CusInitParams castDefaultInitParams(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castDestroy",
+          "signature": "int castDestroy(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castDisconnect",
+          "signature": "int castDisconnect(CusReturnFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castEnableParameter",
+          "signature": "int castEnableParameter(const char* prm, int en, CusReturnFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castFinishCapture",
+          "signature": "int castFinishCapture(int id, CusReturnFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castFwVersion",
+          "signature": "int castFwVersion(CusPlatform platform, char* version, int sz)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castInit",
+          "signature": "int castInit(const CusInitParams* params)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castIsConnected",
+          "signature": "int castIsConnected(void)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castProbeInfo",
+          "signature": "int castProbeInfo(CusProbeInfo* info)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castRawDataAvailability",
+          "signature": "int castRawDataAvailability(CusRawAvailabilityFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castReadRawData",
+          "signature": "int castReadRawData(void** data, CusRawFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castRequestRawData",
+          "signature": "int castRequestRawData(long long int start, long long int end, int lzo, CusRawRequestFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castSeparateOverlays",
+          "signature": "int castSeparateOverlays(int en)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castSetFormat",
+          "signature": "int castSetFormat(CusImageFormat format)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castSetOutputSize",
+          "signature": "int castSetOutputSize(int w, int h)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castSetParameter",
+          "signature": "int castSetParameter(const char* prm, double val, CusReturnFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castSetPulse",
+          "signature": "int castSetPulse(const char* prm, const char* shape, CusReturnFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castStartCapture",
+          "signature": "int castStartCapture(long long int timestamp)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        },
+        {
+          "name": "castUserFunction",
+          "signature": "int castUserFunction(CusUserFunction cmd, double val, CusReturnFn fn)",
+          "blueStatus": "not-implemented",
+          "hardwareVerified": false
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,8 @@
 ## Implemented
 
 - Flutter app projects for Android, Windows and web, sharing the same workspace UI.
+- Clarius-first device requirements, redesigned workspace and searchable in-app usage guide. Editable desktop/phone Figma concepts and comprehensive usage documentation are linked in README.
+- Reproducible inventory of 50 Solum and 23 Cast C exports from pinned public headers. This is documentation/audit tooling, not bindings or a functioning hardware adapter.
 - Synthetic grayscale scanner at a target 8 fps; connect, freeze/resume, capture, disconnect; stale-frame indicator and capture prevention.
 - Local PNG/JPEG import and a narrow Part 10 DICOM decoder; original file preservation; study search, zoom, frame stepping and fixed-rate preview playback.
 - Passphrase-encrypted local vault (AES-256-GCM, fresh random salt/nonce, PBKDF2-HMAC-SHA256 with 210,000 iterations), explicit save/unlock/lock, encrypted backup/restore.

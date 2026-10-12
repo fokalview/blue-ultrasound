@@ -11,9 +11,17 @@ export const capabilities = {
   mode: 'local-research',
   cloudSync: false,
   patientDataUpload: false,
+  primaryVendor: 'clarius',
+  clarius: {
+    implementation: 'not-implemented',
+    hardwareVerified: false,
+    routes: ['solum-oem-native', 'cast-companion-native'],
+    requirements: ['Native platform adapter', 'Matching SDK and firmware', 'Applicable probe license', 'Physical device verification'],
+    guide: 'https://github.com/fokalview/blue-ultrasound/blob/main/docs/CLARIUS.md',
+  },
   adapters: [
     {id: 'demo', source: 'simulated', available: true, freeze: true, capture: true},
-    {id: 'ge-vscan', source: 'hardware', available: false, reason: 'Vendor SDK and hardware verification required'},
+    {id: 'ge-vscan', source: 'hardware', available: false, reason: 'Deferred; Clarius is the primary integration target'},
     {id: 'clarius', source: 'hardware', available: false, reason: 'Licensed SDK and hardware verification required'},
     {id: 'butterfly', source: 'hardware', available: false, reason: 'SDK access and platform verification required'},
   ],

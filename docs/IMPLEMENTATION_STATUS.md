@@ -26,16 +26,16 @@ The passphrase is never transmitted or saved. It stays in memory while unlocked;
 
 ## Remaining dependencies
 
-Native builds require Android SDK and Visual Studio C++ tooling, respectively. Windows plugins also need symlink capability (typically Developer Mode). This machine currently lacks these prerequisites, so native binaries and the Android export bridge are unverified.
+Local native builds require Android SDK and Visual Studio C++ tooling, respectively. Windows plugins also need symlink capability (typically Developer Mode). This machine currently lacks these prerequisites, but GitHub Actions successfully compiled both native targets and produced downloadable packages. Interactive native use and the Android export bridge remain unverified on physical devices.
 
 Real acquisition requires supported SDK access, exact probe model/firmware, and physical testing. Cloud study sync requires an identity provider, tenant authorization, upload/deletion protocol, private storage configuration, and the applicable data-handling agreements. GE DICOM gateway reception, MP4 import and calibrated measurements are not implemented.
 
 ## Plan mapping
 
-Steps 1–2: code and shared/web verification implemented; native build acceptance still open.
+Steps 1–2: code, shared/web verification, and native compilation implemented; physical-device acceptance remains open.
 Step 3: bounded research import/vault subset implemented; full DICOM/video support and transactional storage remain open.
 Steps 4–5: deployable application shell and fail-closed API only; authenticated cloud study services remain open.
 Steps 6–7: blocked on hardware/SDK/model access; no adapter or gateway is claimed complete.
-Step 8: license, contribution docs and CI definitions implemented; signed native research release remains open.
+Step 8: license, contribution docs, passing CI and native research packages implemented; signed distribution and clean-device installation checks remain open.
 
 Design adjustment: use the shared Flutter app as the first hosted workspace, rather than maintaining a separate web UI. This reduces divergence while preserving a future dedicated portal. Local passphrase encryption replaces platform-key integration for the bounded prototype; full native storage remains a later milestone.

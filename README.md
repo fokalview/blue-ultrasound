@@ -2,6 +2,8 @@
 
 **Live research preview:** https://blue-ultrasound.fokalview.workers.dev
 
+**Native builds:** Android debug APK and Windows release ZIP successfully built in [GitHub Actions run 38218185594](https://github.com/fokalview/blue-ultrasound/actions/runs/38218185594). The Linux artifact contains the Android APK plus the web build; the Windows artifact contains the desktop application. Extract the complete Windows directory and run `blue_ultrasound.exe`, keeping its DLLs and `data` folder together. These are unsigned/debug research packages, not store releases or hardware-validated medical software.
+
 Open-source, local-first ultrasound research workspace for **Android, Windows and web**, with a Cloudflare-hostable web build. Original code: Apache-2.0.
 
 **This is a working research preview, not a universal probe driver or a diagnostic application.** Real GE, Clarius and Butterfly connections are unavailable until supported SDKs and hardware are verified. The application labels synthetic data and never presents simulated connections as real.

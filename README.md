@@ -76,4 +76,4 @@ Use an account authorized for Worker/static asset deployments. Never put OAuth t
 - [Original design and roadmap](plans/blue-ultrasound.md).
 - [Contribution guide](CONTRIBUTING.md).
 
-The source is initialized as a local Git repository. The intended GitHub destination is `fokalview/blue-ultrasound`.
+Source: https://github.com/fokalview/blue-ultrasound. GitHub Actions builds and artifacts are available from the repository's Actions tab when the workflows succeed.

@@ -10,7 +10,7 @@
 - Passphrase-encrypted local vault (AES-256-GCM, fresh random salt/nonce, PBKDF2-HMAC-SHA256 with 210,000 iterations), explicit save/unlock/lock, encrypted backup/restore.
 - PNG and original-file export. Android has a document-picker export bridge; Windows uses a save dialog; web uses download.
 - Cloudflare Worker serves the web build, health and device-capability routes. All study writes are disabled; no D1/R2 resources, identities, or study uploads are configured.
-- GitHub workflow definitions for Android debug APK, Windows release build, web build, tests, and Worker checks. Workflows have not yet run on GitHub.
+- GitHub workflow definitions for Android debug APK, Windows release build, web build, tests, and Worker checks. Source published to https://github.com/fokalview/blue-ultrasound; check Actions for current native-build results.
 
 ## Supported file subset
 

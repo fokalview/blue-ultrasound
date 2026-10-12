@@ -9,7 +9,9 @@
 - Browser inspected at 1440×960 and 390×844: demo start/freeze/capture, responsive control wrapping, guide search and Tab/Enter expansion. No captured browser warning/error entries during the check.
 - Editable Figma concepts use Roboto text and Material button instances; Windows and Android frames were exported and visually inspected. No whole-screen raster is embedded in the editable designs.
 - ECC evidence record checker passes for `artifacts/design/evidence.json`. The retained image artifacts are Figma concepts. Browser screenshots were inspected inline, but browser-runtime file saving returned EPERM, so those production screenshots were not saved.
-- Native rebuild run: [38227072188](https://github.com/fokalview/blue-ultrasound/actions/runs/38227072188). At this documentation update, Worker passed and native jobs were pending/in progress; use the run result for current status. Previous native packages below predate this design update.
+- Native rebuild run: [38227072188](https://github.com/fokalview/blue-ultrasound/actions/runs/38227072188) passed all three jobs, including Android APK, Windows release and web build. App source commit: `cc98d2ce81d4f9326234501e385cfe413a4e4fb8`.
+- Downloaded Windows artifact SHA-256 matches `67cb47e6712a199abdeb91271b5b4a165f370ce8642c7b0f8bbe73a6e5f3b665`; Android/web artifact matches `dbdd3a504311942623d2369a5d253078c71a24e64702651068250b1df1459539`.
+- Current local packages: `artifacts/Blue-Windows-current.zip`, `artifacts/Blue-Android-current.apk`, and `artifacts/Blue-Source-current.zip`. The Windows ZIP retains `windows/x64/runner/Release/`; launch its executable with all neighboring DLL/data files intact. The APK is extracted from the verified artifact. Previous packages below predate this update.
 
 Real Clarius acquisition remains **not implemented**, not merely untested. The inventory is documentation tooling; no native binding/runtime was added. Physical probe access, licensing and platform adapter implementation remain required.
 

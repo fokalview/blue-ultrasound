@@ -1,0 +1,17 @@
+.tools/
+node_modules/
+.wrangler/
+.dev.vars*
+.env*
+!.env.example
+dist/
+*.log
+*.keystore
+*.jks
+**/key.properties
+**/local.properties
+**/build/
+**/.dart_tool/
+**/.flutter-plugins*
+**/ephemeral/
+artifacts/

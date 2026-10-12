@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "blue-ultrasound",
+  "main": "services/api/src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "apps/client/build/web",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": {"enabled": false}
+}

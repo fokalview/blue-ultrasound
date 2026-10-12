@@ -1,5 +1,20 @@
 # Verification — 12 October 2026
 
+## Design and usage update — cc98d2c
+
+- Flutter analysis: no issues. Nine Flutter tests pass, including guide filtering, empty search results and Clarius explanation on a phone viewport.
+- TypeScript and five Worker tests pass. Public SDK inventory re-fetch/check passes: 50 Solum and 23 Cast C exports.
+- Web build and Cloudflare dry run pass. Deployed Worker version: `ee3b0fe1-b276-4997-9c02-3ae924563f5c`.
+- Live capability endpoint and browser confirm the Clarius-first source panel and new Guide navigation.
+- Browser inspected at 1440×960 and 390×844: demo start/freeze/capture, responsive control wrapping, guide search and Tab/Enter expansion. No captured browser warning/error entries during the check.
+- Editable Figma concepts use Roboto text and Material button instances; Windows and Android frames were exported and visually inspected. No whole-screen raster is embedded in the editable designs.
+- ECC evidence record checker passes for `artifacts/design/evidence.json`. The retained image artifacts are Figma concepts. Browser screenshots were inspected inline, but browser-runtime file saving returned EPERM, so those production screenshots were not saved.
+- Native rebuild run: [38227072188](https://github.com/fokalview/blue-ultrasound/actions/runs/38227072188). At this documentation update, Worker passed and native jobs were pending/in progress; use the run result for current status. Previous native packages below predate this design update.
+
+Real Clarius acquisition remains **not implemented**, not merely untested. The inventory is documentation tooling; no native binding/runtime was added. Physical probe access, licensing and platform adapter implementation remain required.
+
+## Previous baseline
+
 - Flutter 3.47.7 / Dart 3.13.5: `flutter analyze --no-pub` passed with no issues.
 - `flutter test --no-pub`: 8 tests passed (scanner state, frame validation, DICOM acceptance/rejection, PNG/model round trip, vault integrity, desktop capture, narrow layout).
 - `flutter build web --no-pub --no-web-resources-cdn`: passed.

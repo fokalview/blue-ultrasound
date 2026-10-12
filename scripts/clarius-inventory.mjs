@@ -35,7 +35,7 @@ async function main() {
   const path = resolve(root, 'docs/clarius-sdk-inventory.json');
   const json = JSON.stringify(inventory, null, 2) + '\n';
   if (check) {
-    if (await readFile(path, 'utf8') !== json) throw new Error('SDK inventory differs from pinned public headers');
+    if ((await readFile(path, 'utf8')).replace(/\r\n/g, '\n') !== json) throw new Error('SDK inventory differs from pinned public headers');
   } else {
     await mkdir(resolve(root, 'docs'), {recursive: true});
     await writeFile(path, json);
